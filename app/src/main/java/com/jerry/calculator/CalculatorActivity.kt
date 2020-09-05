@@ -2,6 +2,7 @@ package com.jerry.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
@@ -10,6 +11,9 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
+
+        val h = 3 * 3 +3 -3 *6
+        Log.d("manik",h.toString())
     }
     fun buSelected(view: View){
         if (oper==true){
