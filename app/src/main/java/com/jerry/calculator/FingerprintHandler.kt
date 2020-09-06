@@ -3,12 +3,15 @@ package com.jerry.calculator
 import android.Manifest
 import android.annotation.TargetApi
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.fingerprint.FingerprintManager
 import android.os.Build
+import android.os.Bundle
 import android.os.CancellationSignal
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat.startActivity
 
 @TargetApi(Build.VERSION_CODES.M)
 class FingerprintHandler(private val context: Context) :
@@ -59,10 +62,9 @@ class FingerprintHandler(private val context: Context) :
     }
 
     //onAuthenticationSucceeded is called when a fingerprint has been successfully matched to one of the fingerprints stored on the user’s device//
-    override fun onAuthenticationSucceeded(
-        result: FingerprintManager.AuthenticationResult
-    ) {
+    override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show()
     }
+
 
 }
