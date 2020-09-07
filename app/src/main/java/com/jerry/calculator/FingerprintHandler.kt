@@ -64,6 +64,7 @@ class FingerprintHandler(private val context: Context) :
     //onAuthenticationSucceeded is called when a fingerprint has been successfully matched to one of the fingerprints stored on the user’s device//
     override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show()
+        startActivity(context, Intent(context,imageActivity::class.java),Bundle())
     }
 
 
