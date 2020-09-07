@@ -3,10 +3,8 @@ package com.jerry.calculator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_calculator.*
 
 class CalculatorActivity : AppCompatActivity() {
@@ -15,7 +13,7 @@ class CalculatorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calculator)
 
         bu0.setOnClickListener {
-            val intent = Intent(this,MainActivity2::class.java)
+            val intent = Intent(this,fingerprintActivity::class.java)
             startActivity(intent)
         }
 
