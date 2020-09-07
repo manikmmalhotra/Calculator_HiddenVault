@@ -23,7 +23,7 @@ import javax.crypto.KeyGenerator
 import javax.crypto.NoSuchPaddingException
 import javax.crypto.SecretKey
 
-class MainActivity2 : AppCompatActivity() {
+class fingerprintActivity : AppCompatActivity() {
     private var cipher: Cipher? = null
     private var keyStore: KeyStore? = null
     private var keyGenerator: KeyGenerator? = null
@@ -33,7 +33,7 @@ class MainActivity2 : AppCompatActivity() {
     private var keyguardManager: KeyguardManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_fingerprint)
 
         // If you’ve set your app’s minSdkVersion to anything lower than 23, then you’ll need to verify that the device is running Marshmallow
         // or higher before executing any fingerprint-related code
