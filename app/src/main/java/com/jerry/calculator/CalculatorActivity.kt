@@ -4,6 +4,11 @@ package com.jerry.calculator
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -13,6 +18,7 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         tvOne.setOnClickListener { appendOnExpression("1", true) }
         tvTwo.setOnClickListener { appendOnExpression("2", true) }
