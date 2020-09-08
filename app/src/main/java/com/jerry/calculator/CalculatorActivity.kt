@@ -65,7 +65,7 @@ class CalculatorActivity : AppCompatActivity() {
 
     }
 
-    fun appendOnExpression(string: String, canClear: Boolean) {
+    private fun appendOnExpression(string: String, canClear: Boolean) {
 
         if(tvResult.text.isNotEmpty()){
             tvExpression.text = ""
