@@ -1,131 +1,89 @@
 package com.jerry.calculator
 
+
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
+import net.objecthunter.exp4j.ExpressionBuilder
+
 
 class CalculatorActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculator)
+        setContentView(R.layout.activity_main)
 
-        bu0.setOnClickListener {
-            val intent = Intent(this,fingerprintActivity::class.java)
-            startActivity(intent)
+
+        tvOne.setOnClickListener { appendOnExpression("1", true) }
+        tvTwo.setOnClickListener { appendOnExpression("2", true) }
+        tvThree.setOnClickListener { appendOnExpression("3", true) }
+        tvFour.setOnClickListener { appendOnExpression("4", true) }
+        tvFive.setOnClickListener { appendOnExpression("5", true) }
+        tvSix.setOnClickListener { appendOnExpression("6", true) }
+        tvSeven.setOnClickListener { appendOnExpression("7", true) }
+        tvEight.setOnClickListener { appendOnExpression("8", true) }
+        tvNine.setOnClickListener { appendOnExpression("9", true) }
+        tvZero.setOnClickListener { appendOnExpression("0", true) }
+        tvDot.setOnClickListener { appendOnExpression(".", true) }
+
+
+        tvPlus.setOnClickListener { appendOnExpression("+", false) }
+        tvMinus.setOnClickListener { appendOnExpression("-", false) }
+        tvMul.setOnClickListener { appendOnExpression("*", false) }
+        tvDivide.setOnClickListener { appendOnExpression("/", false) }
+        tvOpen.setOnClickListener { appendOnExpression("(", false) }
+        tvClose.setOnClickListener { appendOnExpression(")", false) }
+
+        tvClear.setOnClickListener {
+            tvExpression.text = ""
+            tvResult.text = ""
         }
 
-
-    }
-    fun buSelected(view: View){
-        if (oper==true){
-            ShowNumber.setText("")
+        tvBack.setOnClickListener {
+            val string = tvExpression.text.toString()
+            if(string.isNotEmpty()){
+                tvExpression.text = string.substring(0,string.length-1)
+            }
+            tvResult.text = ""
         }
-        oper =false
-        val buselect= view as Button
-        var buClickValue=ShowNumber.text.toString()
-        when(buselect.id){
-            bu0.id->{
-                buClickValue +="0"
-            }
-            bu1.id->{
-                buClickValue +="1"
-            }
-            bu2.id->{
-                buClickValue +="2"
-            }
-            bu3.id->{
-                buClickValue +="3"
-            }
-            bu4.id->{
-                buClickValue +="4"
-            }
-            bu5.id->{
-                buClickValue +="5"
-            }
-            bu6.id->{
-                buClickValue +="6"
-            }
-            bu7.id->{
-                buClickValue +="7"
-            }
-            bu8.id->{
-                buClickValue +="8"
-            }
-            bu9.id->{
-                buClickValue +="9"
-            }
-            budott.id->{
-                buClickValue +="."
-            }
-            buPlusMinus.id->{
-                buClickValue ="-" + buClickValue
+
+        tvEquals.setOnClickListener {
+            try {
+
+                val expression = ExpressionBuilder(tvExpression.text.toString()).build()
+                val result = expression.evaluate()
+                val longResult = result.toLong()
+                if(result == longResult.toDouble())
+                    tvResult.text = longResult.toString()
+                else
+                    tvResult.text = result.toString()
+
+            }catch (e:Exception){
+                Log.d("Exception"," message : " + e.message )
             }
         }
-        ShowNumber.setText(buClickValue)
+
     }
 
-    var op="*"
-    var oldNum=""
-    var oper = true
-    fun bumath(view: View){
+    private fun appendOnExpression(string: String, canClear: Boolean) {
 
-        val buSelect = view as Button
-        when(buSelect.id){
-
-            bumul.id->{
-                op="*"
-            }
-            busum.id->{
-                op="+"
-            }
-            bumin.id->{
-                op="-"
-            }
-            budiv.id-> {
-                op = "/"
-            }
-
+        if(tvResult.text.isNotEmpty()){
+            tvExpression.text = ""
         }
-        oldNum= ShowNumber.text.toString()
-        oper=true
 
-
-
-    }
-    fun buEqual(view: View){
-        val newNumber=ShowNumber.text.toString()
-        var finalNumber:Double?=null
-        when(op){
-            "*"->{
-                finalNumber= oldNum.toDouble() * newNumber.toDouble()
-            }
-            "/"->{
-                finalNumber= oldNum.toDouble() / newNumber.toDouble()
-            }
-            "+"->{
-                finalNumber= oldNum.toDouble() + newNumber.toDouble()
-            }
-            "-"->{
-                finalNumber= oldNum.toDouble() - newNumber.toDouble()
-            }
-
+        if (canClear) {
+            tvResult.text = ""
+            tvExpression.append(string)
+        } else {
+            tvExpression.append(tvResult.text)
+            tvExpression.append(string)
+            tvResult.text = ""
         }
-        ShowNumber.setText(finalNumber.toString())
-        oper=true
     }
-
-    fun buPercent(view: View){
-        var number=ShowNumber.text.toString().toDouble()
-        ShowNumber.setText(number.toInt())
-        oper=true
-    }
-
-    fun buAc(view: View){
-        ShowNumber.setText("0")
-        oper=true
-    }
-
 }
