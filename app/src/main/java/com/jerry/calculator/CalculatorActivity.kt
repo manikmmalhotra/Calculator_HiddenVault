@@ -1,11 +1,15 @@
 package com.jerry.calculator
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+
 import android.content.Intent
 import android.content.pm.ActivityInfo
+
+
 import kotlinx.android.synthetic.main.activity_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -56,6 +60,10 @@ class CalculatorActivity : AppCompatActivity() {
 
         tvEquals.setOnClickListener {
             try {
+
+                startActivity(Intent(this,fingerprintActivity::class.java))
+
+
                 val expression = ExpressionBuilder(tvExpression.text.toString()).build()
                 val result = expression.evaluate()
                 val longResult = result.toLong()

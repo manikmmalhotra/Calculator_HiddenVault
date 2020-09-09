@@ -4,7 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
+
+    android:gravity="bottom"
+
     android:weightSum="10"
+
     android:orientation="vertical">
 
     <TextView
@@ -47,8 +51,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+
         android:layout_height="0dp"
         android:layout_weight="6"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -189,15 +198,15 @@
 
             <TextView
                 android:id="@+id/tvEquals"
-               android:layout_width="0dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corners2"
-                android:textSize="35sp"
-                android:textColor="@android:color/white"
                 android:gravity="center"
-                android:layout_margin="10dp"
-                android:text="=" />
+                android:text="="
+                android:textColor="@android:color/white"
+                android:textSize="35sp" />
 
         </LinearLayout>
 
