@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "730063913480",
+    "firebase_url": "https://calculator-ac368.firebaseio.com",
+    "project_id": "calculator-ac368",
+    "storage_bucket": "calculator-ac368.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730063913480:android:2f4641af0d3def97fe87bd",
+        "android_client_info": {
+          "package_name": "com.jerry.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730063913480-h0rqnrc62g41nt3p6rnb49k1q3msjpu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnZexB8aWKoRO-slcvF3_W9uamDhKDOUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730063913480-h0rqnrc62g41nt3p6rnb49k1q3msjpu8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

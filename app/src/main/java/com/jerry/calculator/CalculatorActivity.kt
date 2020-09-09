@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+
+
 import kotlinx.android.synthetic.main.activity_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -48,10 +50,16 @@ class CalculatorActivity : AppCompatActivity() {
             }
             tvResult.text = ""
         }
+        title11.setOnLongClickListener {
+            startActivity(Intent(this,fingerprintActivity::class.java))
+            return@setOnLongClickListener true
+        }
 
         tvEquals.setOnClickListener {
             try {
+
                 startActivity(Intent(this,fingerprintActivity::class.java))
+
 
                 val expression = ExpressionBuilder(tvExpression.text.toString()).build()
                 val result = expression.evaluate()

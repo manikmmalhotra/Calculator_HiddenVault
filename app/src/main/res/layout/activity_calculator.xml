@@ -4,23 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
+
     android:gravity="bottom"
+
+    android:weightSum="10"
+
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Calculator"
+        android:textAlignment="center"
+        android:background="@drawable/rounder"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#AEEA00"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/tvExpression"
         android:layout_width="match_parent"
-        android:layout_height="80sp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:ellipsize="start"
         android:gravity="end"
         android:singleLine="true"
-        android:textColor="@color/numberButton"
+        android:textColor="#fff"
         android:textSize="40sp" />
 
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:ellipsize="end"
         android:gravity="end"
         android:singleLine="true"
@@ -29,8 +51,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
         android:gravity="bottom"
+
+        android:layout_height="0dp"
+        android:layout_weight="6"
+
         android:orientation="vertical">
 
         <LinearLayout

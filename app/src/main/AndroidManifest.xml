@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".testtt"></activity>
-        <activity android:name=".test" />
+       
         <activity android:name=".imageview" />
         <activity android:name=".fingerprintActivity" />
         <activity android:name=".imageActivity" />
@@ -24,7 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" />
-    </application>
+
+        </application>
 
 </manifest>
