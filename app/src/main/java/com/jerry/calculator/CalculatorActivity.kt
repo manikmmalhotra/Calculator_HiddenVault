@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
+import android.content.Intent
+import android.content.pm.ActivityInfo
+
 
 import kotlinx.android.synthetic.main.activity_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -16,7 +19,7 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT)
 
         tvOne.setOnClickListener { appendOnExpression("1", true) }
         tvTwo.setOnClickListener { appendOnExpression("2", true) }
