@@ -1,14 +1,10 @@
 package com.jerry.calculator
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -17,7 +13,7 @@ class CalculatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_calculator)
 
 
         tvOne.setOnClickListener { appendOnExpression("1", true) }
@@ -55,6 +51,7 @@ class CalculatorActivity : AppCompatActivity() {
 
         tvEquals.setOnClickListener {
             try {
+                startActivity(Intent(this,fingerprintActivity::class.java))
 
                 val expression = ExpressionBuilder(tvExpression.text.toString()).build()
                 val result = expression.evaluate()

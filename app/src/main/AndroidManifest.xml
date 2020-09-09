@@ -3,6 +3,8 @@
     package="com.jerry.calculator">
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".fingerprintActivity">
-
-        </activity>
+        <activity android:name=".testtt"></activity>
+        <activity android:name=".test" />
+        <activity android:name=".imageview" />
+        <activity android:name=".fingerprintActivity" />
         <activity android:name=".imageActivity" />
-        
-
         <activity android:name=".CalculatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+    </application>
 
 </manifest>
